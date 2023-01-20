@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My To-do List</title>
+</head>
+<body>
+    <h1>My ToDo List Written by ChatGpt</h1>
+    <div id="task-list"></div>
+
+    <form>
+        <input type="text" id="task-input" placeholder="Add a task...">
+        <button type="button" onclick="addTask()">Add Task</button>
+    </form>
+
+    <script>
+        let tasks = [];
+
+        function addTask() {
+            let task = document.getElementById("task-input").value;
+
+            if (tasks.length < 10) {
+                tasks.push(task);
+                alert(task + " added to the list!");
+                displayTasks();
+            } else {
+                alert("The list is full. Please remove a task before adding a new one.");
+            }
+        }
+
+        function removeTask(index) {
+            let task = tasks[index];
+            tasks.splice(index, 1);
+            alert(task + " removed from the list!");
+            displayTasks();
+        }
+
+        function displayTasks() {
+            let taskList = document.getElementById("task-list");
+            taskList.innerHTML = "";
+         }
